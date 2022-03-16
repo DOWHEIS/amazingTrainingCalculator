@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, useEffect} from "react";
+import ResultComponent from './components/ResultComponent';
+import KeyPadComponent from "./components/KeyPadComponent";
+import Shake from "./components/Shake";
+import './index.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+const App =() =>  {
+  const [display,setDisplay] = useState("")
+
+    return (
+        <div>
+            <ResultComponent result={display}/>
+            <KeyPadComponent className={"calculator-buttons"} display = {display} onClick={setDisplay}/>
+        </div>
+    );
+
+  }
+
+
 
 export default App;
